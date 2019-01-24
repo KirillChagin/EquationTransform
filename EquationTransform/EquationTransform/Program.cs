@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace EquationTransform
+﻿namespace EquationTransform
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var serviceProvider = Startup.Configure();
         }
     }
 }
