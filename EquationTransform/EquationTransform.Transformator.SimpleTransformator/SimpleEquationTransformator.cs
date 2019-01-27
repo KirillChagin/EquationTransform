@@ -5,12 +5,7 @@ namespace EquationTransform.Transformator.SimpleTransformator
 {
     public class SimpleEquationTransformator : IEquationTransformator
     {
-        public string Transform(string equation)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<string> TransformAll(List<string> equations)
+        public string TransformToCanonical(string equation)
         {
             throw new System.NotImplementedException();
         }

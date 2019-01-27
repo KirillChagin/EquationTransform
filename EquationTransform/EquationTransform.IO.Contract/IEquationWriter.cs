@@ -1,16 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace EquationTransform.IO.Contract
 {
-    public interface IEquationWriter
+    public interface IEquationWriter : IDisposable
     {
-        void Write(string outputString);
+        void WriteNextEquation(string outputString);
 
-        void WriteAll(List<string> outputStrings);
-
-        Task WriteAsync(string outputString);
-
-        Task WriteAllAsync(List<string> outputStrings);
+        Task WriteNextEquationAsync(string outputString);
     }
 }

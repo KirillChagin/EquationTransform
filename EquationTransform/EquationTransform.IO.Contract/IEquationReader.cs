@@ -1,15 +1,15 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace EquationTransform.IO.Contract
 {
-    public interface IEquationReader
+    public interface IEquationReader : IDisposable
     {
-        string Read();
+        string ReadNextEquation();
 
-        string ReadAll();
+        Task<string> ReadNextEquationAsync();
 
-        Task<string> ReadAsync();
-
-        Task<string> ReadAllAsync();
+        bool ReadingCompleted { get; }
     }
 }
