@@ -32,6 +32,7 @@ namespace EquationTransform.Transformator.SimpleTransformator
             return maxPower;
         }
 
+        //TODO: need simplification
         private void ConvertToCanonical()
         {
             //variable names and powers dictionary

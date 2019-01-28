@@ -8,6 +8,11 @@ using System.Text;
 
 namespace EquationTransform.Transformator.SimpleTransformator
 {
+    //TODO: need some refactoring for large methods
+
+    /// <summary>
+    /// Equation transformator for the task. Can only work with specified in the task equation format
+    /// </summary>
     public class SimpleEquationTransformator : IEquationTransformator
     {
         //no other operators by assumption of the task
@@ -17,7 +22,7 @@ namespace EquationTransform.Transformator.SimpleTransformator
         private Dictionary<Summand, double> _summands;
 
         /// <summary>
-        /// Transforms equation to the canonical form
+        /// Transforms equation to the canonical form.
         /// </summary>
         /// <param name="equation">input equation</param>
         /// <returns>Equation in the canonical form</returns>

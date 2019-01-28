@@ -6,15 +6,26 @@ using System.Threading.Tasks;
 
 namespace EquationTransform.IO.Console
 {
+    /// <summary>
+    /// Implementation of writing to console
+    /// </summary>
     public class EquationConsoleWriter : IEquationWriter
     {
         private bool _idDisposed;
 
+        /// <summary>
+        /// Write equation to the console
+        /// </summary>
+        /// <param name="outputString">output string</param>
         public void WriteNextEquation(string outputString)
         {
             System.Console.WriteLine(outputString);
         }
 
+        /// <summary>
+        /// Write equation to the console
+        /// </summary>
+        /// <param name="outputString">output string</param>
         public Task WriteNextEquationAsync(string outputString)
         {
             WriteNextEquation(outputString);

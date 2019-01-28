@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 
 namespace EquationTransform.IO.File
 {
+    /// <summary>
+    /// Implementation of writing to a file
+    /// </summary>
     public class EquationFileWriter : IEquationWriter
     {
         private bool _idDisposed;
@@ -17,11 +20,19 @@ namespace EquationTransform.IO.File
             _streamWriter = new StreamWriter(_fileStream);
         }
 
+        /// <summary>
+        /// Write an equation string to a file
+        /// </summary>
+        /// <param name="outputString">output equation</param>
         public void WriteNextEquation(string outputString)
         {
             _streamWriter.WriteLine(outputString);
         }
 
+        /// <summary>
+        /// Write an equation string to a file
+        /// </summary>
+        /// <param name="outputString">output equation</param>
         public async Task WriteNextEquationAsync(string outputString)
         {
             await _streamWriter.WriteLineAsync(outputString);
