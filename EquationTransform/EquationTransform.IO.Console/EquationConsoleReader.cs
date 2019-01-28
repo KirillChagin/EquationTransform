@@ -13,6 +13,13 @@ namespace EquationTransform.IO.Console
         public EquationConsoleReader()
         {
             System.Console.CancelKeyPress += CancelKeyPress;
+            System.Console.WriteLine("Please enter the equation in the following form:");
+            System.Console.WriteLine("P1 + P2 + ... = ... + PN");
+            System.Console.WriteLine("where P1..PN - summands, which look like: ");
+            System.Console.WriteLine("ax^k ");
+            System.Console.WriteLine("where a - floating point value; ");
+            System.Console.WriteLine("k - integer value; ");
+            System.Console.WriteLine("x - variable (each summand can have many variables).");
         }
 
         public string ReadNextEquation()
@@ -29,6 +36,7 @@ namespace EquationTransform.IO.Console
         {
             e.Cancel = true;
             ReadingCompleted = true;
+            System.Console.WriteLine("Press any key to exit...");
         }
 
         public void Dispose()

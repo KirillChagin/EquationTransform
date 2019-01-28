@@ -1,20 +1,22 @@
 ﻿using EquationTransform.Bootstrapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace EquationTransform
 {
     public static class Startup
     {
-        public static ServiceProvider Configure()
+        public static ServiceProvider Configure(string inputFilePath, string outFilePath)
         {
-            var serviceCollection = new ServiceCollection();
+            var serviceCollection = new ServiceCollection();  
 
             var dict = new Dictionary<string, string>
             {
-                {"InputFilePath", "value1"},
-                {"OutputFilePath", "value2"}
+                {"InputFilePath", inputFilePath},
+                {"OutputFilePath", outFilePath}
             };
 
             var config = new ConfigurationBuilder()

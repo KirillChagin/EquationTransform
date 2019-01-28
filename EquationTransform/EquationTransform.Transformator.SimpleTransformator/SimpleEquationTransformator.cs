@@ -12,9 +12,9 @@ namespace EquationTransform.Transformator.SimpleTransformator
     {
         //no other operators by assumption of the task
         private readonly List<string> _operators = new List<string> { "+", "-" };
-        private readonly List<char> _specialSymbols = new List<char> { '(', ')', '+', '-' }; 
+        private readonly List<char> _specialSymbols = new List<char> { '(', ')', '+', '-' };
 
-        private Dictionary<Summand, double> _summands = new Dictionary<Summand, double>();
+        private Dictionary<Summand, double> _summands;
 
         /// <summary>
         /// Transforms equation to the canonical form
@@ -32,6 +32,8 @@ namespace EquationTransform.Transformator.SimpleTransformator
             {
                 throw new ArgumentException("Equation can't be an empty string");
             }
+
+            _summands = new Dictionary<Summand, double>();
 
             var parts = equation.Split('=');
             if (parts.Length != 2)

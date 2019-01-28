@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace EquationTransform.Transformator.SimpleTransformator
+﻿namespace EquationTransform.Transformator.SimpleTransformator
 {
     internal class Variable
     {

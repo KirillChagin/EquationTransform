@@ -19,8 +19,8 @@ namespace EquationTransform.Bootstrapper
 
             var inputFilePath = config.GetValue<string>("InputFilePath", null);
             var outputFilePath = config.GetValue<string>("OutputFilePath", null);
-            services.AddTransient<IEquationReader>(provider => new EquationFileReader(inputFilePath));
-            services.AddTransient<IEquationWriter>(provider => new EquationFileWriter(outputFilePath));
+            services.AddTransient<EquationFileReader>(provider => new EquationFileReader(inputFilePath));
+            services.AddTransient<EquationFileWriter>(provider => new EquationFileWriter(outputFilePath));
 
             services.AddTransient<Func<IOType, IEquationReader>>(provider => type =>
             {

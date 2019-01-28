@@ -21,11 +21,21 @@ namespace EquationTransform.IO.File
 
         public string ReadNextEquation()
         {
+            if (_streamReader.EndOfStream)
+            {
+                ReadingCompleted = true;
+                return null;
+            }
             return _streamReader.ReadLine();
         }
 
         public async Task<string> ReadNextEquationAsync()
         {
+            if (_streamReader.EndOfStream)
+            {
+                ReadingCompleted = true;
+                return null;
+            }
             return await _streamReader.ReadLineAsync();
         }
 

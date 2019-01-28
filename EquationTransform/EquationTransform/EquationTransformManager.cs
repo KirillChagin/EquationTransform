@@ -1,6 +1,7 @@
 ﻿using EquationTransform.Infrastructure;
 using EquationTransform.IO.Contract;
 using EquationTransform.Transformator.Contract;
+using EquationTransform.Transformator.Contract.Exceptions;
 using System;
 using System.Threading.Tasks;
 
@@ -32,8 +33,15 @@ namespace EquationTransform
                         var equation = await reader.ReadNextEquationAsync();
                         if (!string.IsNullOrEmpty(equation))
                         {
-                            var canonicalEquation = _transformator.TransformToCanonical(equation);
-                            await writer.WriteNextEquationAsync(canonicalEquation);
+                            try
+                            {
+                                var canonicalEquation = _transformator.TransformToCanonical(equation);
+                                await writer.WriteNextEquationAsync(canonicalEquation);
+                            }
+                            catch (IncorrectEquationFormatException e)
+                            {
+                                await writer.WriteNextEquationAsync(e.Message);
+                            }
                         }
                     }
                 }

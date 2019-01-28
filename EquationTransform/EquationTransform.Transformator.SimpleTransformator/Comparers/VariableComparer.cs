@@ -20,7 +20,6 @@ namespace EquationTransform.Transformator.SimpleTransformator.Comparers
             {
                 return x.Name - y.Name;
             }
-
         }
     }
 }
